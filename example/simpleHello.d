@@ -7,13 +7,23 @@ version ( Windows )
 
 void main()
 {
-	writeln( "Enter destination GG number: " );
-	string tmp = readln();
+    string tmp;
+
+    write( "Enter source GG number:\n\t");
+    tmp = readln();
+    int sourceNumber = to!int( chomp( tmp ) );
+
+    writef( "Enter password for %d GG number:\n\t", sourceNumber );
+    string password = chomp( readln() );
+
+	write( "Enter destination GG number:\n\t" );
+	tmp = readln();
 	int number = to!int( chomp( tmp ) );
-	writeln( "Enter message to be send: " );
+
+	write( "Enter message to be send:\n\t" );
 	string msg = readln();
 
-	auto params = gg_login_params( 0 /* Your gg number */,  toStringz( "yourPasswordToGgAccount" ) );
+	auto params = gg_login_params( sourceNumber,  toStringz( password ) );
 	params.async = 0; /* Async connection doesn't work on Windows */
 	params.status = GG_STATUS_INVISIBLE;
 
@@ -26,7 +36,7 @@ void main()
 		gg_ping( session );
 		gg_logoff( session );
 		gg_free_session( session );
-		
+
 		writeln( "Message has been succefully send" );
 	}
 	else
