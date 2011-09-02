@@ -370,11 +370,11 @@ alias int gg_ssl_t;
 
 struct gg_login_params
 {
-        this (int number, const char* pass )
-        {
-                uin = number;
-                password = pass;
-        }
+	this (int number, const char* pass )
+	{
+			uin = number;
+			password = pass;
+	}
     uin_t uin;
     const char* password;
     int async;

@@ -1,0 +1,50 @@
+libgaduD
+====
+
+libgaduD is a libgadu (http://toxygen.net/libgadu/) binding for D Programming Language.
+It tottaly wraps C API, so use Documentation for libgadu ( http://toxygen.net/libgadu/doc/ )
+
+
+Author:     Damian Ziemba
+Copyright:  Copyright (c) 2011, Damian Ziemba <nazriel@driv.pl>
+Licence:    GNU LGPL 2.1
+
+
+
+How to use
+============
+
+Include Gadu.d by putting:
+
+import Gadu; 
+
+in your D program
+
+code your application according to http://toxygen.net/libgadu/doc/
+
+Building on *nix
+============
+
+dmd ./yourprogram.d ./Gadu.d -I./ -L-lgadu
+
+Important, when building on unix systems first you need to get original libgadu on your box.
+
+
+Building on Windows
+============
+
+libgadu hasn't got official support for Windows platform, but building library is possible.
+I've include libgadu.lib and libgadu.dll files to use on Windows.
+
+dmd ./yourprogram.d ./Gadu.d -I./ -L./windows/libgadu.lib
+
+Then you need include libgadu.dll with your yourprogram.exe
+libgadu.lib is formated with OMF for dmd/dmc support.
+
+Example program
+============
+
+In ./example directory I've included one example program. In order to build it you need to run on *nix
+	make -f ./make.posix 
+or on Windows ( with mingw for example )
+	mingw32-make -f ./make.win32
