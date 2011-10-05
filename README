@@ -7,7 +7,7 @@ It tottaly wraps C API, so use Documentation for libgadu ( http://toxygen.net/li
 
 Author:     Damian Ziemba
 Copyright:  Copyright (c) 2011, Damian Ziemba <nazriel@driv.pl>
-Licence:    GNU LGPL 2.1
+Licence:    Boost 1.0
 
 
 
